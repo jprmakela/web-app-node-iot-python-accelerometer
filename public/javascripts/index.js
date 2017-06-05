@@ -32,7 +32,7 @@ $(document).ready(function () {
 
   var basicOption = {
     title: {
-      display: true,
+      display: false,
       text: 'Fab Lab Temperature & Humidity',
       fontSize: 36
     },
