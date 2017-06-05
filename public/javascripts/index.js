@@ -33,7 +33,7 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Fab Lab Temperature & Humidity Real-time Data',
+      text: 'Fab Lab Temperature & Humidity',
       fontSize: 36
     },
     scales: {
