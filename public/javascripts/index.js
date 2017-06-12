@@ -32,7 +32,7 @@ $(document).ready(function () {
         fill: false,
         label: 'Z-Axis',
         yAxisID: 'zAxis',
-        borderColor: "rgba(219, 50, 54, 1)",
+        borderColor: "rgba(24, 120, 240, 1)",
         pointBoarderColor: "rgba(24, 120, 240, 1)",
         backgroundColor: "rgba(24, 120, 240, 0.4)",
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
