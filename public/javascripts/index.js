@@ -56,7 +56,7 @@ $(document).ready(function () {
           labelString: 'g',
           display: true
         },
-        position: 'left',
+        position: 'right',
       }]
     }
   }
