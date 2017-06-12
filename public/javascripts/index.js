@@ -47,6 +47,17 @@ $(document).ready(function () {
       display: true,
       text: 'Fab Lab Accelerometer',
       fontSize: 36
+    },
+    scales: {
+      yAxes: [{
+        id: 'xAxis',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'g',
+          display: true
+        },
+        position: 'left',
+      }]
     }
   }
 
