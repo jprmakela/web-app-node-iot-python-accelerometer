@@ -57,6 +57,22 @@ $(document).ready(function () {
           display: true
         },
         position: 'left',
+      }, {
+        id: 'yAxis',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'g',
+          display: true
+        },
+        position: 'left',
+      }, {
+        id: 'zAxis',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'g',
+          display: true
+        },
+        position: 'right'
       }]
     }
   }
