@@ -1,31 +1,43 @@
 $(document).ready(function () {
   var timeData = [],
-    temperatureData = [],
-    humidityData = [];
+    xAxisData = [],
+    yAxisData = [],
+    zAxisData = [];
   var data = {
     labels: timeData,
     datasets: [
       {
         fill: false,
-        label: 'Temperature',
-        yAxisID: 'Temperature',
+        label: 'X-Axis',
+        yAxisID: 'xAxis',
         borderColor: "rgba(255, 204, 0, 1)",
         pointBoarderColor: "rgba(255, 204, 0, 1)",
         backgroundColor: "rgba(255, 204, 0, 0.4)",
         pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
         pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: temperatureData
+        data: xAxisData
+      },
+            {
+        fill: false,
+        label: 'Y-Axis',
+        yAxisID: 'yAxis',
+        borderColor: "rgba(219, 50, 54, 1)",
+        pointBoarderColor: "rgba(219, 50, 54, 1)",
+        backgroundColor: "rgba(219, 50, 54, 0.4)",
+        pointHoverBackgroundColor: "rgba(219, 50, 54, 1)",
+        pointHoverBorderColor: "rgba(219, 50, 54, 1)",
+        data: yAxisData
       },
       {
         fill: false,
-        label: 'Humidity',
-        yAxisID: 'Humidity',
-        borderColor: "rgba(24, 120, 240, 1)",
+        label: 'Z-Axis',
+        yAxisID: 'zAxis',
+        borderColor: "rgba(219, 50, 54, 1)",
         pointBoarderColor: "rgba(24, 120, 240, 1)",
         backgroundColor: "rgba(24, 120, 240, 0.4)",
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-        data: humidityData
+        data: zAxisData
       }
     ]
   }
@@ -33,27 +45,35 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Fab Lab Temperature & Humidity',
+      text: 'Fab Lab Accelerometer',
       fontSize: 36
     },
     scales: {
       yAxes: [{
-        id: 'Temperature',
+        id: 'xAxis',
         type: 'linear',
         scaleLabel: {
-          labelString: 'Temperature(C)',
+          labelString: 'g',
           display: true
         },
         position: 'left',
       }, {
-          id: 'Humidity',
-          type: 'linear',
-          scaleLabel: {
-            labelString: 'Humidity(%)',
-            display: true
-          },
-          position: 'right'
-        }]
+        id: 'yAxis',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'g',
+          display: true
+        },
+        position: 'left',
+      }, {
+        id: 'zAxis',
+        type: 'linear',
+        scaleLabel: {
+          labelString: 'g',
+          display: true
+        },
+        position: 'right'
+      }]
     }
   }
 
@@ -74,24 +94,33 @@ $(document).ready(function () {
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
-      if(!obj.time || !obj.temperature) {
+      if (!obj.time || !obj.xAxis) {
         return;
       }
-      timeData.push(obj.time);
-      temperatureData.push(obj.temperature);
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
+
+      timeData.push(obj.time);
+
+      xAxisData.push(obj.xAxis);
       var len = timeData.length;
       if (len > maxLen) {
         timeData.shift();
-        temperatureData.shift();
+        xAxisData.shift();
       }
 
-      if (obj.humidity) {
-        humidityData.push(obj.humidity);
+      if (obj.yAxis) {
+        yAxisData.push(obj.yAxis);
       }
-      if (humidityData.length > maxLen) {
-        humidityData.shift();
+      if (yAxisData.length > maxLen) {
+        yAxisData.shift();
+      }
+
+      if (obj.zAxis) {
+        zAxisData.push(obj.zAxis);
+      }
+      if (zAxisData.length > maxLen) {
+        zAxisData.shift();
       }
 
       myLineChart.update();
