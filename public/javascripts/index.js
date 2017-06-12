@@ -9,7 +9,7 @@ $(document).ready(function () {
       {
         fill: false,
         label: 'X-Axis',
-        yAxisID: 'xAxis',
+        yAxisID: 'yAxis',
         borderColor: "rgba(255, 204, 0, 1)",
         pointBoarderColor: "rgba(255, 204, 0, 1)",
         backgroundColor: "rgba(255, 204, 0, 0.4)",
@@ -31,7 +31,7 @@ $(document).ready(function () {
       {
         fill: false,
         label: 'Z-Axis',
-        yAxisID: 'zAxis',
+        yAxisID: 'yAxis',
         borderColor: "rgba(24, 120, 240, 1)",
         pointBoarderColor: "rgba(24, 120, 240, 1)",
         backgroundColor: "rgba(24, 120, 240, 0.4)",
@@ -50,14 +50,6 @@ $(document).ready(function () {
     },
     scales: {
       yAxes: [{
-        id: 'xAxis',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'g',
-          display: true
-        },
-        position: 'left',
-      }, {
         id: 'yAxis',
         type: 'linear',
         scaleLabel: {
@@ -65,14 +57,6 @@ $(document).ready(function () {
           display: true
         },
         position: 'left',
-      }, {
-        id: 'zAxis',
-        type: 'linear',
-        scaleLabel: {
-          labelString: 'g',
-          display: true
-        },
-        position: 'right'
       }]
     }
   }
