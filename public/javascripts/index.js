@@ -156,7 +156,7 @@ $(document).ready(function () {
     var optionsNoAnimation = { animation: false }
     var magLineChart = new Chart(ctx, {
         type: 'line',
-        data: accData,
+        data: magData,
         options: basicOption
     });
 
@@ -165,7 +165,7 @@ $(document).ready(function () {
     var optionsNoAnimation = { animation: false }
     var rotLineChart = new Chart(ctx, {
         type: 'line',
-        data: accData,
+        data: rotData,
         options: basicOption
     });
 
