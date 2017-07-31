@@ -187,15 +187,15 @@ $(document).ready(function () {
             timeData.push(obj.time);
 
             xAxisAccData.push(obj.xAxisAcc);
-            xAxisMagData.push(obj.yAxisMag);
-            xAxisRotData.push(obj.yAxisRot);
+            xAxisMagData.push(obj.xAxisMag);
+            xAxisRotData.push(obj.xAxisRot);
             
             var len = timeData.length;
             if (len > maxLen) {
                 timeData.shift();
                 xAxisAccData.shift();
                 xAxisMagData.shift();
-                yAxisRotData.shift();
+                xAxisRotData.shift();
             }
 
             if (obj.yAxisAcc) {
