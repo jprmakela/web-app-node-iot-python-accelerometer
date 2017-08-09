@@ -182,7 +182,7 @@ $(document).ready(function () {
                 return;
             }
             // only keep no more than 50 points in the line chart
-            const maxLen = 50;
+            const maxLen = 10;
 
             timeData.push(obj.time);
 
