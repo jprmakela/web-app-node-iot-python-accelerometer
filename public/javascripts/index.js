@@ -182,13 +182,13 @@ $(document).ready(function () {
                 return;
             }
             // only keep no more than 50 points in the line chart
-            const maxLen = 10;
+            const maxLen = 15;
 
             timeData.push(obj.time);
 
-            xAxisAccData.push(obj.xAxisAcc);
-            xAxisMagData.push(obj.xAxisMag);
-            xAxisRotData.push(obj.xAxisRot);
+            xAxisAccData.push(obj.accelerometer[0]);
+            xAxisMagData.push(obj.magnetometer[0]);
+            xAxisRotData.push(obj.gyroscope[0]);
             
             var len = timeData.length;
             if (len > maxLen) {
@@ -199,9 +199,9 @@ $(document).ready(function () {
             }
 
             if (obj.yAxisAcc) {
-                yAxisAccData.push(obj.yAxisAcc);
-                yAxisMagData.push(obj.yAxisMag);
-                yAxisRotData.push(obj.yAxisRot);
+                yAxisAccData.push(obj.accelerometer[1]);
+                yAxisMagData.push(obj.magnetometer[1]);
+                yAxisRotData.push(obj.gyroscope[1]);
             }
             if (yAxisAccData.length > maxLen) {
                 yAxisAccData.shift();
@@ -210,9 +210,9 @@ $(document).ready(function () {
             }
 
             if (obj.zAxisAcc) {
-                zAxisAccData.push(obj.zAxisAcc);
-                zAxisMagData.push(obj.zAxisMag);
-                zAxisRotData.push(obj.zAxisRot);
+                zAxisAccData.push(obj.accelerometer[2]);
+                zAxisMagData.push(obj.magnetometer[2]);
+                zAxisRotData.push(obj.gyroscope[2]);
             }
             if (zAxisAccData.length > maxLen) {
                 zAxisAccData.shift();
