@@ -178,7 +178,7 @@ $(document).ready(function () {
         console.log('receive message' + message.data);
         try {
             var obj = JSON.parse(message.data);
-            if (!obj.time || !obj.xAxisAcc) {
+            if (!obj.time || !obj.accelerometer[0]) {
                 return;
             }
             // only keep no more than 50 points in the line chart
@@ -198,7 +198,7 @@ $(document).ready(function () {
                 xAxisRotData.shift();
             }
 
-            if (obj.yAxisAcc) {
+            if (obj.accelerometer[1]) {
                 yAxisAccData.push(obj.accelerometer[1]);
                 yAxisMagData.push(obj.magnetometer[1]);
                 yAxisRotData.push(obj.gyroscope[1]);
@@ -209,7 +209,7 @@ $(document).ready(function () {
                 yAxisRotData.shift();
             }
 
-            if (obj.zAxisAcc) {
+            if (obj.accelerometer[2]) {
                 zAxisAccData.push(obj.accelerometer[2]);
                 zAxisMagData.push(obj.magnetometer[2]);
                 zAxisRotData.push(obj.gyroscope[2]);
