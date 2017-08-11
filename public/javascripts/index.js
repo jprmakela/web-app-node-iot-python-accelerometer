@@ -1,23 +1,23 @@
 $(document).ready(function () {
     var timeData = [],
-        xAxisAccData = [],
-        yAxisAccData = [],
-        zAxisAccData = [],
-        xAxisMagData = [],
-        yAxisMagData = [],
-        zAxisMagData = [],
-        xAxisRotData = [],
-        yAxisRotData = [],
-        zAxisRotData = [],
+        xAxisAccArray = [],
+        yAxisAccArray = [],
+        zAxisAccArray = [],
+        xAxisMagArray = [],
+        yAxisMagArray = [],
+        zAxisMagArray = [],
+        xAxisRotArray = [],
+        yAxisRotArray = [],
+        zAxisRotArray = [],
 
-        objTemperatureData = [],
-        ambTemperatureData = [],
+        objTemperatureArray = [],
+        ambTemperatureArray = [],
 
-        lightmeterData = [],
+        lightmeterArray = [],
 
-        barometerData = [],
+        barometerArray = [],
 
-        humidityData = [];
+        humidityArray = [];
 
 
     var accData = {
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: xAxisAccData
+                data: xAxisAccArray
             },
             {
                 fill: false,
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(219, 50, 54, 0.4)",
                 pointHoverBackgroundColor: "rgba(219, 50, 54, 1)",
                 pointHoverBorderColor: "rgba(219, 50, 54, 1)",
-                data: yAxisAccData
+                data: yAxisAccArray
             },
             {
                 fill: false,
@@ -54,7 +54,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(24, 120, 240, 0.4)",
                 pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
                 pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-                data: zAxisAccData
+                data: zAxisAccArray
             }
         ]
     }
@@ -71,7 +71,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: xAxisMagData
+                data: xAxisMagArray
             },
             {
                 fill: false,
@@ -82,7 +82,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(219, 50, 54, 0.4)",
                 pointHoverBackgroundColor: "rgba(219, 50, 54, 1)",
                 pointHoverBorderColor: "rgba(219, 50, 54, 1)",
-                data: yAxisMagData
+                data: yAxisMagArray
             },
             {
                 fill: false,
@@ -93,7 +93,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(24, 120, 240, 0.4)",
                 pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
                 pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-                data: zAxisMagData
+                data: zAxisMagArray
             }
         ]
     }
@@ -110,7 +110,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: xAxisRotData
+                data: xAxisRotArray
             },
             {
                 fill: false,
@@ -121,7 +121,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(219, 50, 54, 0.4)",
                 pointHoverBackgroundColor: "rgba(219, 50, 54, 1)",
                 pointHoverBorderColor: "rgba(219, 50, 54, 1)",
-                data: yAxisRotData
+                data: yAxisRotArray
             },
             {
                 fill: false,
@@ -132,7 +132,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(24, 120, 240, 0.4)",
                 pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
                 pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-                data: zAxisRotData
+                data: zAxisRotArray
             }
         ]
     }
@@ -149,7 +149,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: objTemperatureData
+                data: objTemperatureArray
             },
             {
                 fill: false,
@@ -160,7 +160,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(219, 50, 54, 0.4)",
                 pointHoverBackgroundColor: "rgba(219, 50, 54, 1)",
                 pointHoverBorderColor: "rgba(219, 50, 54, 1)",
-                data: ambTemperatureData
+                data: ambTemperatureArray
             },
         ]
     }
@@ -177,7 +177,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: barometerData
+                data: barometerArray
             },
         ]
     }
@@ -194,7 +194,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: humidityData
+                data: humidityArray
             },
         ]
     }
@@ -211,7 +211,7 @@ $(document).ready(function () {
                 backgroundColor: "rgba(255, 204, 0, 0.4)",
                 pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
                 pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-                data: lightmeterData
+                data: lightmeterArray
             },
         ]
     }
@@ -332,53 +332,50 @@ $(document).ready(function () {
 
             timeData.push(obj.time);
 
-            xAxisAccData.push(obj.accelerometer[0]);
-            xAxisMagData.push(obj.magnetometer[0]);
-            xAxisRotData.push(obj.gyroscope[0]);
-            objTemperatureData.push(obj.IRtemperature[0]);
-            lightmeterData.push(obj.lightmeter);
+            xAxisAccArray.push(obj.accelerometer[0]);
+            xAxisMagArray.push(obj.magnetometer[0]);
+            xAxisRotArray.push(obj.gyroscope[0]);
+            objTemperatureArray.push(obj.IRtemperature[0]);
+            lightmeterArray.push(obj.lightmeter);
             
-            
-
-
             var len = timeData.length;
             if (len > maxLen) {
                 timeData.shift();
-                xAxisAccData.shift();
-                xAxisMagData.shift();
-                xAxisRotData.shift();
-                objTemperatureData.shift();
-                lightmeterData.shift();
+                xAxisAccArray.shift();
+                xAxisMagArray.shift();
+                xAxisRotArray.shift();
+                objTemperatureArray.shift();
+                lightmeterArray.shift();
 
             }
 
-            if (obj.yAxisAcc) {
-                yAxisAccData.push(obj.accelerometer[1]);
-                yAxisMagData.push(obj.magnetometer[1]);
-                yAxisRotData.push(obj.gyroscope[1]);
-                ambTemperatureData.push(obj.IRtemperature[1]);
-                barometerData.push(obj.barometer[1]);
-                humidityData.push(obj.humidity[1]);
+            if (obj.accelerometer[1]) {
+                yAxisAccArray.push(obj.accelerometer[1]);
+                yAxisMagArray.push(obj.magnetometer[1]);
+                yAxisRotArray.push(obj.gyroscope[1]);
+                ambTemperatureArray.push(obj.IRtemperature[1]);
+                barometerArray.push(obj.barometer[1]);
+                humidityArray.push(obj.humidity[1]);
 
             }
-            if (yAxisAccData.length > maxLen) {
-                yAxisAccData.shift();
-                yAxisMagData.shift();
-                yAxisRotData.shift();
-                ambTemperatureData.shift();
-                barometerData.shift();
-                humidityData.shift();
+            if (yAxisAccArray.length > maxLen) {
+                yAxisAccArray.shift();
+                yAxisMagArray.shift();
+                yAxisRotArray.shift();
+                ambTemperatureArray.shift();
+                barometerArray.shift();
+                humidityArray.shift();
             }
 
-            if (obj.zAxisAcc) {
-                zAxisAccData.push(obj.accelerometer[2]);
-                zAxisMagData.push(obj.magnetometer[2]);
-                zAxisRotData.push(obj.gyroscope[2]);
+            if (obj.accelerometer[2]) {
+                zAxisAccArray.push(obj.accelerometer[2]);
+                zAxisMagArray.push(obj.magnetometer[2]);
+                zAxisRotArray.push(obj.gyroscope[2]);
             }
-            if (zAxisAccData.length > maxLen) {
-                zAxisAccData.shift();
-                zAxisMagData.shift();
-                zAxisRotData.shift();
+            if (zAxisAccArray.length > maxLen) {
+                zAxisAccArray.shift();
+                zAxisMagArray.shift();
+                zAxisRotArray.shift();
             }
 
             accLineChart.update();
